@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import com.crashlytics.android.Crashlytics;
 import com.facebook.stetho.Stetho;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Logger;
@@ -64,7 +65,7 @@ public class CompeteApp extends Application {
       editor.putBoolean(FIRST_TIME, false);
       editor.apply();
     }
-    Fabric.with(mFabric);
+    Fabric.with(mFabric, new Crashlytics());
 
     Stetho.initializeWithDefaults(this);
 
